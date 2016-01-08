@@ -54,7 +54,7 @@ class MetadataExtension extends DataExtension {
 			'"MetadataSchema"."ID" = "MetadataSchemaLink"."SchemaID"'
 			. ' AND "MetadataSchemaLink"."ParentClass" = \'%s\''
 			. ' AND "MetadataSchemaLink"."ParentID" = %d',
-			ClassInfo::baseDataClass($this->owner->class),
+			Convert::raw2sql(ClassInfo::baseDataClass($this->owner->class)),
 			$this->owner->ID
 		);
 
@@ -111,7 +111,7 @@ class MetadataExtension extends DataExtension {
 				'"MetadataSchema"."ID" = "MetadataSchemaLink"."SchemaID"'
 				. ' AND "MetadataSchemaLink"."ParentClass" = \'%s\''
 				. ' AND "MetadataSchemaLink"."ParentID" IN (%s)',
-				$baseClass,
+				Convert::raw2sql($baseClass),
 				implode(', ', $ids)
 			);
 
