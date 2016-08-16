@@ -257,7 +257,7 @@ class MetadataExtension extends DataExtension {
 
 		foreach ($this->getSchemas() as $schema) {
 			if ($schemaName) {
-				if (!$schema->Name == $schemaName) {
+				if ($schema->Name != $schemaName) {
 					continue;
 				}
 			}
